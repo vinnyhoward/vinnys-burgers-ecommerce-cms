@@ -22,5 +22,6 @@
 	"prettier.disableLanguages": ["javascript", "javascriptreact"],
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
-	"editor.insertSpaces": true
+	"editor.insertSpaces": true,
+	"prettier.useTabs": true
 }
