@@ -6,6 +6,7 @@ import Footer from './Footer';
 import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
 import stripes from '../assets/images/stripes.svg';
+import { ILayout } from '../types/typesLayout';
 
 const SiteBorderStyles = styled.div`
 	max-width: 1000px;
@@ -28,7 +29,7 @@ const ContentStyles = styled.div`
 	padding: 2rem;
 `;
 
-export default function Layout({ children }) {
+export default function Layout({ children }: ILayout) {
 	return (
 		<>
 			<GlobalStyles />

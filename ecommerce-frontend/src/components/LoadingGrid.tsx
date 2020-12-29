@@ -1,7 +1,8 @@
 import React from 'react';
 import { ItemsGrid, ItemStyles } from '../styles/Grids';
+import { ILoadingGrid } from '../types/typesLoadingGrid';
 
-export default function LoadingGrid({ count }) {
+export default function LoadingGrid({ count }: ILoadingGrid) {
 	return (
 		<ItemsGrid>
 			{Array.from({ length: count }, (_, index) => (

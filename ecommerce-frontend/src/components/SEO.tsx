@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import { ISEO } from '../types/SEO.d';
+import { ISEO } from '../types/SEO';
 
 export default function SEO({
 	children,

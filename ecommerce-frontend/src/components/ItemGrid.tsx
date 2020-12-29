@@ -1,6 +1,6 @@
 import React from 'react';
 import { ItemsGrid, ItemStyles } from '../styles/Grids';
-import { IItemGrid } from '../types/itemGrid.d';
+import { IItemGrid } from '../types/itemGrid';
 
 export default function ItemGrid({ items }: IItemGrid) {
 	const renderItems = () =>
