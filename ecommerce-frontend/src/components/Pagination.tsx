@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { IPagination } from '../types/typesPagination';
 
 const PaginationStyles = styled.div`
 	display: flex;
@@ -38,7 +39,7 @@ export default function Pagination({
 	totalCount,
 	currentPage,
 	base,
-}) {
+}: IPagination) {
 	const totalPages = Math.ceil(totalCount / pageSize);
 	const prevPage = currentPage - 1;
 	const nextPage = currentPage + 1;

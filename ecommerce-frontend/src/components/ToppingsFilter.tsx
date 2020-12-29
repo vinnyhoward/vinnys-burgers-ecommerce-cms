@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
+import { IBurgerToppings } from '../types/typesToppingsFilter';
 
 const ToppingsStyles = styled.div`
 	display: flex;
@@ -27,7 +28,7 @@ const ToppingsStyles = styled.div`
 	}
 `;
 
-function countBurgersInToppings(burgers) {
+function countBurgersInToppings(burgers: IBurgerToppings) {
 	const toppingsCount = burgers
 		.map((burger) => burger.toppings)
 		.flat()
@@ -46,7 +47,7 @@ function countBurgersInToppings(burgers) {
 	return Object.values(toppingsCount).sort((a, b) => b.count - a.count);
 }
 
-export default function ToppingsFilter({ activeTopping }) {
+export default function ToppingsFilter({ activeTopping }: IBurgerToppings) {
 	const { veganBurgers } = useStaticQuery(graphql`
 		query {
 			veganBurgers: allSanityVeganBurger {
