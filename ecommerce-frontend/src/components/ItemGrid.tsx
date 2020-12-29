@@ -1,9 +1,10 @@
 import React from 'react';
 import { ItemsGrid, ItemStyles } from '../styles/Grids';
+import { IItemGrid } from '../types/itemGrid.d';
 
-export default function ItemGrid({ items }) {
+export default function ItemGrid({ items }: IItemGrid) {
 	const renderItems = () =>
-		items.map((item) => (
+		items?.map((item) => (
 			<ItemStyles key={item._id}>
 				<p>
 					<span className="mark">{item.name}</span>
@@ -13,7 +14,7 @@ export default function ItemGrid({ items }) {
 					height="400"
 					src={`${item.image.asset.url}?w=500&h=400&fit=crop`}
 					alt={item.name}
-					styles={{
+					style={{
 						background: `url(${item.image.asset.metadata.lqip})`,
 						backgroundSize: 'cover',
 					}}
