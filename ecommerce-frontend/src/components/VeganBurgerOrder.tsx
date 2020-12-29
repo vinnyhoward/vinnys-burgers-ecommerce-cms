@@ -3,12 +3,13 @@ import Img from 'gatsby-image';
 import MenuItemStyles from '../styles/MenuItemStyles';
 import calculateBurgerPrice from '../utils/calculateBurgerPrice';
 import formatMoney from '../utils/formatMoney';
+import { IVeganBurgerOrder } from '../types/typesVeganBurgerOrder';
 
 export default function VeganBurgerOrder({
 	order,
 	veganBurgers,
 	removeFromOrder,
-}) {
+}: IVeganBurgerOrder) {
 	const renderOrderList = () =>
 		order.map((singleOrder, index) => {
 			const singleBurger = veganBurgers.find(

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import { IVeganBurgers } from '../types/typesVeganBurgerOrder';
 
 const VeganBurgerGridStyles = styled.div`
 	display: grid;
@@ -24,7 +25,9 @@ const VeganBurgerStyles = styled.div`
 	}
 `;
 
-function SingleVeganBurger({ burger: { slug, name, image, toppings } }) {
+function SingleVeganBurger({
+	burger: { slug, name, image, toppings },
+}: IVeganBurgers) {
 	return (
 		<VeganBurgerStyles>
 			<Link to={`/vegan-burger/${slug.current}`}>

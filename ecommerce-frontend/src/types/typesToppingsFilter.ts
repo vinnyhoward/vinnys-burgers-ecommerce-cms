@@ -6,7 +6,7 @@ interface IBurgerTopping {
 	toppings: Array<ITopping>;
 }
 
-interface ITopping {
+export interface ITopping {
 	name: string;
 	id: string;
 }
