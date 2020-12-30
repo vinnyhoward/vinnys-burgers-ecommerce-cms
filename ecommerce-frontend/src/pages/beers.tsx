@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import SEO from '../components/SEO';
+import { BeerConnection } from '../generated/graphql-types.d.ts';
 
 const BeerGridStyles = styled.div`
 	display: grid;
@@ -22,7 +23,8 @@ const SingleBeerStyles = styled.div`
 		font-size: 10px;
 	}
 `;
-export default function BeersPage({ data: { beers } }) {
+
+export default function BeersPage({ data: { beers } }: BeerConnection) {
 	const renderBeers = () =>
 		beers.nodes.map(
 			({ id, name, image, price, rating: { average, reviews } }) => {
