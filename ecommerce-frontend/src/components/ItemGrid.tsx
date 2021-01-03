@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import { ItemsGrid, ItemStyles } from '../styles/Grids';
-import { IItemGrid } from '../types/itemGrid';
+import { IItemGrid } from '../types/typesItemGrid';
 
-export default function ItemGrid({ items }: IItemGrid) {
+const ItemGrid: React.FunctionComponent<IItemGrid> = ({ items }) => {
 	const renderItems = () =>
 		items?.map((item) => (
 			<ItemStyles key={item._id}>
@@ -15,11 +15,13 @@ export default function ItemGrid({ items }: IItemGrid) {
 					src={`${item.image.asset.url}?w=500&h=400&fit=crop`}
 					alt={item.name}
 					style={{
-						background: `url(${item.image.asset.metadata.lqip})`,
+						background: `url(${item?.image?.asset?.metadata?.lqip})`,
 						backgroundSize: 'cover',
 					}}
 				/>
 			</ItemStyles>
 		));
 	return <ItemsGrid>{renderItems()}</ItemsGrid>;
-}
+};
+
+export default ItemGrid;

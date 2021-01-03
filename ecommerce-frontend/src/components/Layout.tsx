@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import 'normalize.css';
 import Navigator from './Navigator';
@@ -29,7 +29,7 @@ const ContentStyles = styled.div`
 	padding: 2rem;
 `;
 
-export default function Layout({ children }: ILayout) {
+const Layout: React.FunctionComponent<ILayout> = ({ children }) => {
 	return (
 		<>
 			<GlobalStyles />
@@ -43,4 +43,6 @@ export default function Layout({ children }: ILayout) {
 			</SiteBorderStyles>
 		</>
 	);
-}
+};
+
+export default Layout;

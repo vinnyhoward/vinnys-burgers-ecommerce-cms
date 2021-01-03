@@ -1,4 +1,4 @@
-import { IImage } from './typesImage.ts';
+import { IImage } from './typesImage';
 
 export interface IItemGrid {
 	items?: Array<IChefs>;

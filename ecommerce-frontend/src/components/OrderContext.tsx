@@ -1,16 +1,18 @@
-import React, { useState, createContext } from 'react';
+import * as React from 'react';
 import { ILayout } from '../types/typesLayout';
 
-const OrderContext = createContext();
+const OrderContext = React.createContext();
 
-export function OrderProvider({ children }: ILayout) {
-	const [order, setOrder] = useState([]);
+export const OrderProvider: React.FunctionComponent<ILayout> = ({
+	children,
+}) => {
+	const [order, setOrder] = React.useState([]);
 
 	return (
 		<OrderContext.Provider value={[order, setOrder]}>
 			{children}
 		</OrderContext.Provider>
 	);
-}
+};
 
 export default OrderContext;

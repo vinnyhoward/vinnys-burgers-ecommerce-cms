@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { IPagination } from '../types/typesPagination';
@@ -34,17 +34,18 @@ const PaginationStyles = styled.div`
 	}
 `;
 
-export default function Pagination({
+const Pagination: React.FunctionComponent<IPagination> = ({
 	pageSize,
 	totalCount,
 	currentPage,
 	base,
-}: IPagination) {
-	const totalPages = Math.ceil(totalCount / pageSize);
-	const prevPage = currentPage - 1;
-	const nextPage = currentPage + 1;
-	const hasNextPage = nextPage <= totalPages;
-	const hasPrevPage = prevPage >= 1;
+}) => {
+	const totalPages: number =
+		pageSize && totalCount ? Math.ceil(totalCount / pageSize) : 4;
+	const prevPage: number = currentPage ? currentPage - 1 : 1;
+	const nextPage: number = currentPage ? currentPage + 1 : 1;
+	const hasNextPage: boolean = nextPage <= totalPages;
+	const hasPrevPage: boolean = prevPage >= 1;
 
 	return (
 		<PaginationStyles>
@@ -73,4 +74,6 @@ export default function Pagination({
 			</Link>
 		</PaginationStyles>
 	);
-}
+};
+
+export default Pagination;

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import stripes from '../assets/images/stripes.svg';
 
@@ -100,7 +100,7 @@ const LogoStyles = styled.div`
 	}
 `;
 
-export default function Logo() {
+const Logo: React.FunctionComponent<{}> = () => {
 	return (
 		<LogoStyles className="logo">
 			<div className="inner">
@@ -120,4 +120,6 @@ export default function Logo() {
 			</div>
 		</LogoStyles>
 	);
-}
+};
+
+export default Logo;

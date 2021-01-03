@@ -73,7 +73,7 @@ const NavStyles = styled.nav`
 	}
 `;
 
-export default function Navigator() {
+const Navigator: React.FunctionComponent<{}> = () => {
 	return (
 		<NavStyles>
 			<ul>
@@ -97,4 +97,6 @@ export default function Navigator() {
 			</ul>
 		</NavStyles>
 	);
-}
+};
+
+export default Navigator;

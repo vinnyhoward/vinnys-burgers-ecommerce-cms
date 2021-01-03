@@ -12,5 +12,5 @@
 		"allowJs": true
 	},
 	"exclude": ["node_modules", "public", ".cache"],
-	"include": ["src/types/custom.d.ts"]
+	"include": ["src/types/custom.d.ts", "src/components/Layout.tsx"]
 }
