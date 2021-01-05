@@ -1,7 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
-import { IBurgerToppings } from '../types/typesToppingsFilter';
+import {
+	IBurgerToppings,
+	IBurgerToppingsCount,
+	ITopping,
+	IBurgerTopping,
+} from '../types/typesToppingsFilter';
 
 const ToppingsStyles = styled.div`
 	display: flex;
@@ -28,11 +33,11 @@ const ToppingsStyles = styled.div`
 	}
 `;
 
-function countBurgersInToppings(burgers: IBurgerToppings) {
+function countBurgersInToppings(burgers: Array<IBurgerToppings>): any {
 	const toppingsCount = burgers
 		.map((burger) => burger.toppings)
 		.flat()
-		.reduce((acc, topping) => {
+		.reduce((acc, topping: ITopping) => {
 			const existingTopping = acc[topping.id];
 			if (existingTopping) existingTopping.count += 1;
 			else
@@ -47,7 +52,9 @@ function countBurgersInToppings(burgers: IBurgerToppings) {
 	return Object.values(toppingsCount).sort((a, b) => b.count - a.count);
 }
 
-export default function ToppingsFilter({ activeTopping }: IBurgerToppings) {
+const ToppingsFilter: React.FunctionComponent<IBurgerToppings> = ({
+	activeTopping,
+}) => {
 	const { veganBurgers } = useStaticQuery(graphql`
 		query {
 			veganBurgers: allSanityVeganBurger {
@@ -61,7 +68,9 @@ export default function ToppingsFilter({ activeTopping }: IBurgerToppings) {
 		}
 	`);
 
-	const toppingsWithCounts = countBurgersInToppings(veganBurgers.nodes);
+	const toppingsWithCounts: Array<IBurgerTopping> = countBurgersInToppings(
+		veganBurgers.nodes
+	);
 
 	const renderToppings = () =>
 		toppingsWithCounts.map((topping) => (
@@ -88,4 +97,6 @@ export default function ToppingsFilter({ activeTopping }: IBurgerToppings) {
 			{renderToppings()}
 		</ToppingsStyles>
 	);
-}
+};
+
+export default ToppingsFilter;

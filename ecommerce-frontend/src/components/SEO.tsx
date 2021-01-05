@@ -1,15 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
-import { ISEO } from '../types/SEO';
+import { ISEO } from '../types/typesSEO';
 
-export default function SEO({
+const SEO: React.FunctionComponent<ISEO> = ({
 	children,
 	location,
 	description,
 	title,
 	image,
-}: ISEO) {
+}) => {
 	const { site } = useStaticQuery(graphql`
 		query {
 			site {
@@ -45,4 +45,6 @@ export default function SEO({
 			{children}
 		</Helmet>
 	);
-}
+};
+
+export default SEO;

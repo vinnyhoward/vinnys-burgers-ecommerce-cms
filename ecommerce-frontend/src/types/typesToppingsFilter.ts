@@ -9,4 +9,9 @@ interface IBurgerTopping {
 export interface ITopping {
 	name: string;
 	id: string;
+	count?: number;
+}
+
+export interface IBurgerToppingsCount {
+	burger: Array<IBurgerTopping>;
 }
