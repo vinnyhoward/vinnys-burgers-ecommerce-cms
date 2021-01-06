@@ -1,20 +1,25 @@
-import React from 'react';
+import * as React from 'react';
 import Img from 'gatsby-image';
 import MenuItemStyles from '../styles/MenuItemStyles';
 import calculateBurgerPrice from '../utils/calculateBurgerPrice';
 import formatMoney from '../utils/formatMoney';
-import { IVeganBurgerOrder } from '../types/typesVeganBurgerOrder';
+import {
+	IVeganBurgerOrder,
+	IVeganBurgers,
+	IOrder,
+} from '../types/typesVeganBurgerOrder';
 
-export default function VeganBurgerOrder({
+const VeganBurgerOrder: React.FunctionComponent<IVeganBurgerOrder> = ({
 	order,
 	veganBurgers,
 	removeFromOrder,
-}: IVeganBurgerOrder) {
+}) => {
 	const renderOrderList = () =>
-		order.map((singleOrder, index) => {
-			const singleBurger = veganBurgers.find(
-				(burger) => burger.id === singleOrder.id
-			);
+		order.map((singleOrder: Array<IOrder>, index: number) => {
+			const singleBurger = veganBurgers.find((burger: IVeganBurgers) => {
+				console.log('burgersz:', burger);
+				return burger.id === singleOrder.id;
+			});
 
 			return (
 				<MenuItemStyles key={`${index}-${singleOrder.id}`}>
@@ -37,4 +42,6 @@ export default function VeganBurgerOrder({
 			);
 		});
 	return <>{renderOrderList()}</>;
-}
+};
+
+export default VeganBurgerOrder;

@@ -110,13 +110,14 @@ async function fetchBeersAndConvertIntoNodes({
 	let beers;
 
 	try {
-		const beerResults = await fetch('https://sampleapis.com/beers/api/ale');
+		const beerResults = await fetch('https://api.sampleapis.com/beers/ale');
 		beers = await beerResults.json();
 	} catch (err) {
 		console.error('Failed fetching beers api:', err);
 	}
 
 	for (const beer of beers) {
+    console.log('BEERIOS BOYS:', beer)
 		const nodeMeta = {
 			id: createNodeId(`beer-${beer.name}`),
 			parent: null,

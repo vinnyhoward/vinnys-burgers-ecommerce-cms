@@ -1,18 +1,18 @@
-import { IImage } from './typesImage.ts';
+import { IImage } from './typesImage';
 import { ITopping } from './typesToppingsFilter';
 
 export interface IVeganBurgerOrder {
 	order?: IOrder;
-	removeFromOrder: (number) => IOrder;
+	removeFromOrder: (arg0: number) => IOrder;
 	veganBurgers: IVeganBurgers;
 }
 
-interface IOrder {
+export interface IOrder {
 	id: string;
 	size: string;
 }
 
-interface IVeganBurgers {
+export interface IVeganBurgers {
 	id?: string;
 	name?: string;
 	price?: number;
