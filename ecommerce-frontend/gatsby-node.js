@@ -117,7 +117,7 @@ async function fetchBeersAndConvertIntoNodes({
 	}
 
 	for (const beer of beers) {
-    console.log('BEERIOS BOYS:', beer)
+		console.log('BEERIOS BOYS:', beer);
 		const nodeMeta = {
 			id: createNodeId(`beer-${beer.name}`),
 			parent: null,

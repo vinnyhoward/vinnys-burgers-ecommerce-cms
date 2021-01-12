@@ -2,9 +2,9 @@ import { IImage } from './typesImage';
 import { ITopping } from './typesToppingsFilter';
 
 export interface IVeganBurgerOrder {
-	order?: IOrder;
+	order?: Array<IOrder>;
 	removeFromOrder: (arg0: number) => IOrder;
-	veganBurgers: IVeganBurgers;
+	veganBurgers: Array<IVeganBurgers>;
 }
 
 export interface IOrder {
@@ -14,11 +14,15 @@ export interface IOrder {
 
 export interface IVeganBurgers {
 	id?: string;
+	image: IImage;
 	name?: string;
 	price?: number;
 	slug?: ISlug;
-	image?: IImage;
-	toppings?: ITopping;
+	toppings?: Array<ITopping>;
+}
+
+export interface IVeganBurgerId {
+	id: string;
 }
 
 interface ISlug {

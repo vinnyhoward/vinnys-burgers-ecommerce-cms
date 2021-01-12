@@ -5,8 +5,8 @@ import calculateBurgerPrice from '../utils/calculateBurgerPrice';
 import formatMoney from '../utils/formatMoney';
 import {
 	IVeganBurgerOrder,
-	IVeganBurgers,
 	IOrder,
+	IVeganBurgerId,
 } from '../types/typesVeganBurgerOrder';
 
 const VeganBurgerOrder: React.FunctionComponent<IVeganBurgerOrder> = ({
@@ -15,11 +15,12 @@ const VeganBurgerOrder: React.FunctionComponent<IVeganBurgerOrder> = ({
 	removeFromOrder,
 }) => {
 	const renderOrderList = () =>
-		order.map((singleOrder: Array<IOrder>, index: number) => {
-			const singleBurger = veganBurgers.find((burger: IVeganBurgers) => {
-				console.log('burgersz:', burger);
-				return burger.id === singleOrder.id;
-			});
+		order?.map((singleOrder: IOrder, index: number) => {
+			const singleBurger: IVeganBurgerId = veganBurgers?.find(
+				({ id }: IVeganBurgerId) => {
+					return id === singleOrder.id;
+				}
+			);
 
 			return (
 				<MenuItemStyles key={`${index}-${singleOrder.id}`}>

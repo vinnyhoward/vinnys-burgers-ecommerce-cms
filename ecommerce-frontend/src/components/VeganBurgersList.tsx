@@ -1,8 +1,13 @@
-import React from 'react';
+// @ts-nocheck
+import * as React from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import { IVeganBurgers } from '../types/typesVeganBurgerOrder';
+import {
+	IVeganBurgers,
+	IVeganBurgerOrder,
+} from '../types/typesVeganBurgerOrder';
+import { ITopping } from '../types/typesToppingsFilter';
 
 const VeganBurgerGridStyles = styled.div`
 	display: grid;
@@ -25,26 +30,35 @@ const VeganBurgerStyles = styled.div`
 	}
 `;
 
-function SingleVeganBurger({
-	burger: { slug, name, image, toppings },
-}: IVeganBurgers) {
+function SingleVeganBurger({ slug, name, image, toppings, id }: IVeganBurgers) {
+	const {
+		asset: { fluid },
+	} = image;
 	return (
-		<VeganBurgerStyles>
-			<Link to={`/vegan-burger/${slug.current}`}>
+		<VeganBurgerStyles key={id}>
+			<Link to={`/vegan-burger/${slug?.current}`}>
 				<h2>
 					<span className="mark">{name}</span>
 				</h2>
 			</Link>
-			<p>{toppings.map((topping) => topping.name).join(', ')}</p>
-			<Img fluid={image.asset.fluid} alt={name} />
+			<p>{toppings?.map((topping: ITopping) => topping?.name).join(', ')}</p>
+			<Img {...{ fluid }} alt={name} />
 		</VeganBurgerStyles>
 	);
 }
 
-export default function VeganBurgersList({ veganBurgers }) {
+const VeganBurgersList = ({ veganBurgers }: IVeganBurgerOrder) => {
 	const renderVeganBurgers = () =>
-		veganBurgers.map((burger) => (
-			<SingleVeganBurger key={burger.id} {...{ burger }} />
-		));
+		veganBurgers?.map((burger: IVeganBurgers) => {
+			const { slug, name, image, toppings, id } = burger;
+			return (
+				<SingleVeganBurger
+					key={burger.id}
+					{...{ slug, name, image, toppings, id }}
+				/>
+			);
+		});
 	return <VeganBurgerGridStyles>{renderVeganBurgers()}</VeganBurgerGridStyles>;
-}
+};
+
+export default VeganBurgersList;

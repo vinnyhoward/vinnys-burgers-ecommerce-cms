@@ -37,7 +37,7 @@ function countBurgersInToppings(burgers: Array<IBurgerToppings>): any {
 	const toppingsCount = burgers
 		.map((burger) => burger.toppings)
 		.flat()
-		.reduce((acc, topping: ITopping) => {
+		.reduce((acc, topping: any) => {
 			const existingTopping = acc[topping.id];
 			if (existingTopping) existingTopping.count += 1;
 			else

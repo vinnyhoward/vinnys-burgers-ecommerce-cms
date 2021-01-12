@@ -17,5 +17,5 @@
 		".cache",
 		"src/components/Pagination.tsx"
 	],
-	"include": ["src/types/custom.d.ts", "src/components/SEO.tsx"]
+	"include": ["src/types/custom.d.ts", "src/components/VeganBurgersList.tsx"]
 }
