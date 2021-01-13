@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ILayout } from '../types/typesLayout';
 
-const OrderContext = React.createContext();
+const OrderContext = React.createContext(null);
 
 export const OrderProvider: React.FunctionComponent<ILayout> = ({
 	children,
