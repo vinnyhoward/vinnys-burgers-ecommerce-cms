@@ -1,10 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import LoadingGrid from '../components/LoadingGrid';
 import ItemGrid from '../components/ItemGrid';
 import useLatestData from '../utils/useLatestData';
 import { HomePageGrid } from '../styles/Grids';
+import { IVeganBurgers, IFreshBurgers } from '../types/typesVeganBurgerOrder';
+import { IChefs } from '../types/typesChefs';
 
-const SectionHeader = ({ title, description }) => (
+interface ISectionHeader {
+	title?: string;
+	description?: string;
+}
+
+const SectionHeader = ({ title, description }: ISectionHeader) => (
 	<>
 		<h2 className="center">
 			<span className="mark tilt">{title}</span>
@@ -13,7 +20,7 @@ const SectionHeader = ({ title, description }) => (
 	</>
 );
 
-function CurrentlyCooking({ chefs }) {
+function CurrentlyCooking({ chefs }: IChefs) {
 	return (
 		<div>
 			<SectionHeader
@@ -27,7 +34,7 @@ function CurrentlyCooking({ chefs }) {
 	);
 }
 
-function FreshBurgers({ freshBurgers }) {
+function FreshBurgers({ freshBurgers }: IFreshBurgers) {
 	return (
 		<div>
 			<SectionHeader
@@ -43,8 +50,9 @@ function FreshBurgers({ freshBurgers }) {
 	);
 }
 
-export default function HomePage() {
+const HomePage: React.FunctionComponent<{}> = () => {
 	const { freshBurgers, chefs } = useLatestData();
+
 	return (
 		<div className="center">
 			<h1>The Best Burgers Downtown!</h1>
@@ -55,4 +63,6 @@ export default function HomePage() {
 			</HomePageGrid>
 		</div>
 	);
-}
+};
+
+export default HomePage;

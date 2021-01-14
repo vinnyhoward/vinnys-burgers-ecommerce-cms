@@ -1,11 +1,6 @@
 import { IImage } from './typesImage';
+import { IChef } from './typesChefs';
 
 export interface IItemGrid {
-	items?: Array<IChefs>;
-}
-
-export interface IChefs {
-	name: string;
-	_id: string;
-	image: IImage;
+	items?: Array<IChef>;
 }

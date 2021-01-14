@@ -26,6 +26,7 @@
 		"src/components/Logo.tsx",
 		"src/components/Navigator.tsx",
 		"src/components/Pagination.tsx",
-		"src/components/SEO.tsx"
+		"src/components/SEO.tsx",
+		"src/pages/index.tsx"
 	]
 }

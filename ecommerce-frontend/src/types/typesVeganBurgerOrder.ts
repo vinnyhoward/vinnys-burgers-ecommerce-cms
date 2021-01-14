@@ -14,7 +14,7 @@ export interface IOrder {
 
 export interface IVeganBurgers {
 	id?: string;
-	image: IImage;
+	image?: IImage;
 	name?: string;
 	price?: number;
 	slug?: ISlug;
@@ -27,4 +27,8 @@ export interface IVeganBurgerId {
 
 interface ISlug {
 	current: string;
+}
+
+export interface IFreshBurgers {
+	freshBurgers?: Array<IVeganBurgers>;
 }

@@ -12,7 +12,7 @@ const ItemGrid: React.FunctionComponent<IItemGrid> = ({ items }) => {
 				<img
 					width="500"
 					height="400"
-					src={`${item.image.asset.url}?w=500&h=400&fit=crop`}
+					src={`${item?.image?.asset.url}?w=500&h=400&fit=crop`}
 					alt={item.name}
 					style={{
 						background: `url(${item?.image?.asset?.metadata?.lqip})`,

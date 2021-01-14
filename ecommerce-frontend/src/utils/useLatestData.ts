@@ -21,7 +21,7 @@ export default function useLatestData() {
 	// chefs
 	const [chefs, setChefs] = useState();
 	useEffect(() => {
-		fetch(process.env.GATSBY_GRAPHQL_ENDPOINT, {
+		fetch(process.env.GATSBY_GRAPHQL_ENDPOINT!, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
