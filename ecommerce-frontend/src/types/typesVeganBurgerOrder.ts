@@ -4,7 +4,7 @@ import { ITopping } from './typesToppingsFilter';
 export interface IVeganBurgerOrder {
 	order?: Array<IOrder>;
 	removeFromOrder: (arg0: number) => IOrder;
-	veganBurgers: Array<IVeganBurgers>;
+	veganBurgers?: Array<IVeganBurgers>;
 }
 
 export interface IOrder {
@@ -31,4 +31,16 @@ interface ISlug {
 
 export interface IFreshBurgers {
 	freshBurgers?: Array<IVeganBurgers>;
+}
+
+export interface IVeganBurgerData {
+	data: IVeganBurgerDataNodes;
+}
+
+export interface IVeganBurgerDataNodes {
+	veganBurgers?: IVeganBurgerNodes;
+}
+
+export interface IVeganBurgerNodes {
+	nodes?: Array<IVeganBurgers>;
 }
