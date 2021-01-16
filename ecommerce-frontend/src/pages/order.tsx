@@ -11,8 +11,13 @@ import formatMoney from '../utils/formatMoney';
 import calculateOrderTotal from '../utils/calculateOrderTotal';
 import OrderFormStyles from '../styles/OrderFormStyles';
 import MenuItemStyles from '../styles/MenuItemStyles';
+import {
+	IVeganBurgers,
+	IVeganBurgerData,
+} from '../types/typesVeganBurgerOrder';
 
 export default function OrdersPage({ data }) {
+	console.log('data:', data);
 	const veganBurgers = data.veganBurgers.nodes;
 
 	const initialValueState = {
@@ -37,7 +42,7 @@ export default function OrdersPage({ data }) {
 	} = useVeganBurger(initialOrderState);
 	const { name, email } = values;
 
-	const renderSizesAndPrice = (burger) =>
+	const renderSizesAndPrice = (burger: IVeganBurgers) =>
 		['S', 'M', 'L'].map((size, idx) => (
 			<button
 				key={idx}
@@ -49,12 +54,12 @@ export default function OrdersPage({ data }) {
 		));
 
 	const renderAllBurgers = () =>
-		veganBurgers.map((burger, index) => (
+		veganBurgers.map((burger: IVeganBurgers, index: string) => (
 			<MenuItemStyles key={`${index}-${burger.id}`}>
 				<Img
 					width="50"
 					height="50"
-					fluid={burger.image.asset.fluid}
+					fluid={burger?.image?.asset.fluid}
 					alt={burger.name}
 				/>
 				<div>

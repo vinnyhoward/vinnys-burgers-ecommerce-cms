@@ -27,5 +27,13 @@ export default {
 				dest: './src/generated/graphql-types.d.ts',
 			},
 		},
+		{
+			resolve: `gatsby-plugin-typescript`,
+			options: {
+				isTSX: true, // defaults to false
+				jsxPragma: `jsx`, // defaults to "React"
+				allExtensions: true, // defaults to false
+			},
+		},
 	],
 };

@@ -28,5 +28,6 @@
 		"src/components/Pagination.tsx",
 		"src/components/SEO.tsx",
 		"src/pages/index.tsx"
+		// "src/pages/the-chefs.tsx"
 	]
 }

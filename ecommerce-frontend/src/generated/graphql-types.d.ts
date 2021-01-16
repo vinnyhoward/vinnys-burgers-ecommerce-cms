@@ -3936,11 +3936,11 @@ export type SitePageFieldsEnum =
 	| 'pluginCreator___pluginOptions___watchMode'
 	| 'pluginCreator___pluginOptions___token'
 	| 'pluginCreator___pluginOptions___dest'
-	| 'pluginCreator___pluginOptions___path'
-	| 'pluginCreator___pluginOptions___pathCheck'
-	| 'pluginCreator___pluginOptions___allExtensions'
 	| 'pluginCreator___pluginOptions___isTSX'
 	| 'pluginCreator___pluginOptions___jsxPragma'
+	| 'pluginCreator___pluginOptions___allExtensions'
+	| 'pluginCreator___pluginOptions___path'
+	| 'pluginCreator___pluginOptions___pathCheck'
 	| 'pluginCreator___nodeAPIs'
 	| 'pluginCreator___browserAPIs'
 	| 'pluginCreator___ssrAPIs'
@@ -4140,11 +4140,11 @@ export type SitePluginFieldsEnum =
 	| 'pluginOptions___watchMode'
 	| 'pluginOptions___token'
 	| 'pluginOptions___dest'
-	| 'pluginOptions___path'
-	| 'pluginOptions___pathCheck'
-	| 'pluginOptions___allExtensions'
 	| 'pluginOptions___isTSX'
 	| 'pluginOptions___jsxPragma'
+	| 'pluginOptions___allExtensions'
+	| 'pluginOptions___path'
+	| 'pluginOptions___pathCheck'
 	| 'nodeAPIs'
 	| 'browserAPIs'
 	| 'ssrAPIs'
@@ -4276,11 +4276,11 @@ export type SitePluginPluginOptions = {
 	watchMode?: Maybe<Scalars['Boolean']>;
 	token?: Maybe<Scalars['String']>;
 	dest?: Maybe<Scalars['String']>;
-	path?: Maybe<Scalars['String']>;
-	pathCheck?: Maybe<Scalars['Boolean']>;
-	allExtensions?: Maybe<Scalars['Boolean']>;
 	isTSX?: Maybe<Scalars['Boolean']>;
 	jsxPragma?: Maybe<Scalars['String']>;
+	allExtensions?: Maybe<Scalars['Boolean']>;
+	path?: Maybe<Scalars['String']>;
+	pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -4294,11 +4294,11 @@ export type SitePluginPluginOptionsFilterInput = {
 	watchMode?: Maybe<BooleanQueryOperatorInput>;
 	token?: Maybe<StringQueryOperatorInput>;
 	dest?: Maybe<StringQueryOperatorInput>;
-	path?: Maybe<StringQueryOperatorInput>;
-	pathCheck?: Maybe<BooleanQueryOperatorInput>;
-	allExtensions?: Maybe<BooleanQueryOperatorInput>;
 	isTSX?: Maybe<BooleanQueryOperatorInput>;
 	jsxPragma?: Maybe<StringQueryOperatorInput>;
+	allExtensions?: Maybe<BooleanQueryOperatorInput>;
+	path?: Maybe<StringQueryOperatorInput>;
+	pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {

@@ -86,7 +86,7 @@ async function turnChefsIntoPages({ graphql, actions }) {
 
 	const pageSize = parseInt(process.env.GATSBY_PAGE_SIZE);
 	const pageCount = Math.ceil(data.chefs.totalCount / pageSize);
-	const theChefs = path.resolve('./src/pages/the-chefs.js');
+	const theChefs = path.resolve('./src/pages/the-chefs.tsx');
 
 	Array.from({ length: pageCount }).forEach((_, index) => {
 		actions.createPage({

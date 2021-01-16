@@ -1,9 +1,12 @@
-import React from 'react';
+// @ts-nocheck
+import * as React from 'react';
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Pagination from '../components/Pagination';
 import SEO from '../components/SEO';
+import { IVeganBurgers } from '../types/typesVeganBurgerOrder';
+import { IChefsComponent } from '../types/typesChefs';
 
 const ChefGrid = styled.div`
 	display: grid;
@@ -35,22 +38,21 @@ const ChefStyles = styled.div`
 	}
 `;
 
-export default function TheChefsPage({
-	data,
+const TheChefsPage: React.FunctionComponent<IChefsComponent> = ({
 	data: { chefs },
 	pageContext: { pageSize, currentPage, skip, totalChefCount },
-}) {
-	const theChefs = chefs.nodes;
+}) => {
+	const theChefs = chefs.nodes || [];
 
 	const renderChefs = () =>
-		theChefs.map(({ slug, name, image, description, id }) => (
+		theChefs?.map(({ slug, name, image, description, id }: IVeganBurgers) => (
 			<ChefStyles key={id}>
-				<Link to={`/the-chefs/${slug.current}`}>
+				<Link to={`/the-chefs/${slug?.current}`}>
 					<h2>
 						<span className="mark">{name}</span>
 					</h2>
 				</Link>
-				<Img fluid={image.asset.fluid} alt={name} />
+				<Img fluid={image?.asset.fluid} alt={name} />
 				<p className="description">{description}</p>
 			</ChefStyles>
 		));
@@ -60,13 +62,16 @@ export default function TheChefsPage({
 			<Pagination
 				currentPage={currentPage || 1}
 				base="/the-chefs"
-				totalCount={totalChefCount}
-				{...{ pageSize, skip }}
+				totalCount={totalChefCount || 0}
+				pageSize={pageSize || 0}
+				skip={skip || 0}
 			/>
 			<ChefGrid>{renderChefs()}</ChefGrid>
 		</>
 	);
-}
+};
+
+export default TheChefsPage;
 
 export const query = graphql`
 	query($skip: Int = 0, $pageSize: Int = 2) {

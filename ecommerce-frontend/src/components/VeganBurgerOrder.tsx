@@ -6,7 +6,7 @@ import formatMoney from '../utils/formatMoney';
 import {
 	IVeganBurgerOrder,
 	IOrder,
-	IVeganBurgerId,
+	IVeganBurgers,
 } from '../types/typesVeganBurgerOrder';
 
 const VeganBurgerOrder: React.FunctionComponent<IVeganBurgerOrder> = ({
@@ -16,15 +16,18 @@ const VeganBurgerOrder: React.FunctionComponent<IVeganBurgerOrder> = ({
 }) => {
 	const renderOrderList = () =>
 		order?.map((singleOrder: IOrder, index: number) => {
-			const singleBurger: IVeganBurgerId = veganBurgers?.find(
-				({ id }: IVeganBurgerId) => {
-					return id === singleOrder.id;
-				}
-			);
+			if (!veganBurgers) return <div>Sorry no burger exists</div>;
+			const singleBurger = veganBurgers.find(({ id }: IVeganBurgers) => {
+				return id === singleOrder.id;
+			});
+			if (!singleBurger) return <div>Sorry no burger exists</div>;
 
 			return (
 				<MenuItemStyles key={`${index}-${singleOrder.id}`}>
-					<Img fluid={singleBurger.image.asset.fluid} alt={singleBurger.name} />
+					<Img
+						fluid={singleBurger?.image?.asset.fluid}
+						alt={singleBurger.name}
+					/>
 					<h2>{singleBurger.name}</h2>
 					<p>
 						{formatMoney(
