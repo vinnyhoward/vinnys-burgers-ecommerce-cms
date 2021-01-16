@@ -4,4 +4,5 @@ export interface IPagination {
 	totalCount?: number;
 	pageSize?: number;
 	skip?: number;
+	hasNextPage?: boolean;
 }

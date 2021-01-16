@@ -4,7 +4,7 @@ import { SitePageContext } from '../generated/graphql-types.d';
 export interface IChef {
 	name?: string | undefined;
 	_id?: string | undefined;
-	image?: IImage;
+	image: IImage;
 }
 
 export interface IChefs {
