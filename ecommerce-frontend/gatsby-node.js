@@ -72,7 +72,7 @@ async function turnChefsIntoPages({ graphql, actions }) {
 		}
 	`);
 
-	const singularChef = path.resolve('./src/templates/Chef.js');
+	const singularChef = path.resolve('./src/templates/Chef.tsx');
 	data.chefs.nodes.forEach((chef) => {
 		actions.createPage({
 			component: singularChef,

@@ -3,13 +3,14 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import SEO from '../components/SEO';
+import { IChef, IChefsComponent } from '../types/typesChefs';
 
-export default function Chef({ data: { person } }) {
+const Chef: IChef = ({ data: { person } }: IChefsComponent) => {
 	return (
 		<>
 			<SEO title={person.name} image={person.image?.asset?.fluid?.src} />
 			<div className="center">
-				<Img fluid={person.image.asset.fluid} />
+				<Img fluid={person?.image.asset.fluid} />
 				<h2>
 					<span className="mark">{person.name}</span>
 				</h2>
@@ -17,7 +18,7 @@ export default function Chef({ data: { person } }) {
 			</div>
 		</>
 	);
-}
+};
 
 export const query = graphql`
 	query($slug: String!) {
@@ -35,3 +36,5 @@ export const query = graphql`
 		}
 	}
 `;
+
+export default Chef;
