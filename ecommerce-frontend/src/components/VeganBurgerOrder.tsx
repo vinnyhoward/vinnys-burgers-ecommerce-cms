@@ -25,7 +25,7 @@ const VeganBurgerOrder: React.FunctionComponent<IVeganBurgerOrder> = ({
 			return (
 				<MenuItemStyles key={`${index}-${singleOrder.id}`}>
 					<Img
-						fluid={singleBurger?.image?.asset.fluid}
+						fluid={singleBurger?.image?.asset.fluid!}
 						alt={singleBurger.name}
 					/>
 					<h2>{singleBurger.name}</h2>

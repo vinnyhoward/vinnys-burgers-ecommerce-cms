@@ -29,6 +29,7 @@
 		// "src/components/SEO.tsx",
 		// "src/pages/index.tsx",
 		// "src/pages/the-chefs.tsx"
-		// "src/templates/Chef.tsx"
+		// "src/templates/Chef.tsx",
+		// "src/**/*"
 	]
 }

@@ -59,7 +59,7 @@ export default function OrdersPage({ data }) {
 				<Img
 					width="50"
 					height="50"
-					fluid={burger.image.asset.fluid}
+					fluid={burger.image.asset.fluid!}
 					alt={burger.name}
 				/>
 				<div>

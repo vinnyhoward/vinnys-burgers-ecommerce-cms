@@ -51,7 +51,7 @@ const TheChefsPage: React.FunctionComponent<IChefsComponent> = ({
 						<span className="mark">{name}</span>
 					</h2>
 				</Link>
-				<Img fluid={image?.asset.fluid} alt={name} />
+				<Img fluid={image?.asset.fluid!} alt={name} />
 				<p className="description">{description}</p>
 			</ChefStyles>
 		));

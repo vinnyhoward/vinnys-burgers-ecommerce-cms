@@ -3,14 +3,16 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import SEO from '../components/SEO';
-import { IChef, IChefsComponent } from '../types/typesChefs';
+import { IChef, IChefsTemplateComponent } from '../types/typesChefs';
 
-const Chef: IChef = ({ data: { person } }: IChefsComponent) => {
+const Chef: React.FunctionComponent<IChefsTemplateComponent> = ({
+	data: { person },
+}) => {
 	return (
 		<>
 			<SEO title={person.name} image={person.image?.asset?.fluid?.src} />
 			<div className="center">
-				<Img fluid={person?.image.asset.fluid} />
+				<Img fluid={person?.image?.asset.fluid!} />
 				<h2>
 					<span className="mark">{person.name}</span>
 				</h2>

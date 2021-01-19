@@ -5,6 +5,7 @@ export interface IChef {
 	name?: string | undefined;
 	_id?: string | undefined;
 	image: IImage;
+	description: string;
 }
 
 export interface IChefs {
@@ -22,4 +23,12 @@ export interface IChefsNodes {
 export interface IChefsComponent {
 	pageContext: SitePageContext;
 	data: IChefsNodes;
+}
+
+export interface IPerson {
+	person: IChef;
+}
+
+export interface IChefsTemplateComponent {
+	data: IPerson;
 }
