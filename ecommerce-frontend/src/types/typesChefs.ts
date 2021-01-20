@@ -5,7 +5,7 @@ export interface IChef {
 	name?: string | undefined;
 	_id?: string | undefined;
 	image: IImage;
-	description: string;
+	description?: string;
 }
 
 export interface IChefs {

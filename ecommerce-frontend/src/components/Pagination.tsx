@@ -34,6 +34,11 @@ const PaginationStyles = styled.div`
 	}
 `;
 
+const DisabledContainer = styled.div`
+	pointer-events: none;
+	color: var(--grey);
+`;
+
 const Pagination: React.FunctionComponent<IPagination> = ({
 	pageSize,
 	totalCount,
@@ -47,15 +52,41 @@ const Pagination: React.FunctionComponent<IPagination> = ({
 	const hasNextPage: boolean = nextPage <= totalPages;
 	const hasPrevPage: boolean = prevPage >= 1;
 
+	const linkTag = (type: string, isDisabled: boolean) => {
+		if (type === 'prev') {
+			if (isDisabled) {
+				return (
+					<DisabledContainer>
+						← <span className="word">Prev</span>
+					</DisabledContainer>
+				);
+			} else {
+				return (
+					<Link title="Prev Page" to={`${base}/${prevPage}`}>
+						← <span className="word">Prev</span>
+					</Link>
+				);
+			}
+		} else if (type === 'next') {
+			if (isDisabled) {
+				return (
+					<DisabledContainer>
+						<span className="word">Next</span> →
+					</DisabledContainer>
+				);
+			} else {
+				return (
+					<Link title="Next Page" to={`${base}/${nextPage}`}>
+						<span className="word">Next</span> →
+					</Link>
+				);
+			}
+		}
+	};
+
 	return (
 		<PaginationStyles>
-			<Link
-				title="Prev Page"
-				disabled={!hasPrevPage}
-				to={`${base}/${prevPage}`}
-			>
-				← <span className="word">Prev</span>
-			</Link>
+			{linkTag('prev', !hasPrevPage)}
 			{Array.from({ length: totalPages }).map((_, i) => (
 				<Link
 					className={currentPage === 1 && i === 0 ? 'current' : ''}
@@ -65,13 +96,7 @@ const Pagination: React.FunctionComponent<IPagination> = ({
 					{i + 1}
 				</Link>
 			))}
-			<Link
-				title="Next Page"
-				disabled={!hasNextPage}
-				to={`${base}/${nextPage}`}
-			>
-				<span className="word">Next</span> →
-			</Link>
+			{linkTag('next', !hasNextPage)}
 		</PaginationStyles>
 	);
 };

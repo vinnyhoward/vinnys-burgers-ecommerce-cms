@@ -18,18 +18,26 @@
 		"src/components/Pagination.tsx"
 	],
 	"include": [
-		"src/types/custom.d.ts"
-		// "src/components/Footer.tsx",
-		// "src/components/ItemGrid.tsx",
-		// "src/components/Layout.tsx",
-		// "src/components/LoadingGrid.tsx",
-		// "src/components/Logo.tsx",
-		// "src/components/Navigator.tsx",
-		// "src/components/Pagination.tsx",
-		// "src/components/SEO.tsx",
-		// "src/pages/index.tsx",
-		// "src/pages/the-chefs.tsx"
-		// "src/templates/Chef.tsx",
+		"src/types/custom.d.ts",
+		"src/components/Footer.tsx",
+		"src/components/ItemGrid.tsx",
+		"src/components/Layout.tsx",
+		"src/components/LoadingGrid.tsx",
+		"src/components/Logo.tsx",
+		"src/components/Navigator.tsx",
+		// "src/components/OrderContext.tsx", //TODO
+		"src/components/Pagination.tsx",
+		"src/components/SEO.tsx",
+		// "src/components/ToppingsFilter.tsx", //TODO
+		// "src/components/VeganBurgerOrder.tsx", //TODO
+		// "src/components/VeganBurgersList.tsx", //TODO
+		"src/pages/404.tsx",
+		// "src/pages/beers.tsx", //TODO
+		"src/pages/index.tsx", //TODO
+		// "src/pages/order.tsx", //TODO
+		"src/pages/the-chefs.tsx",
+		// "src/pages/vegan-burger.tsx", //TODO
+		"src/templates/Chef.tsx"
 		// "src/**/*"
 	]
 }

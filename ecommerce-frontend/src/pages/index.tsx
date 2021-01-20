@@ -3,7 +3,7 @@ import LoadingGrid from '../components/LoadingGrid';
 import ItemGrid from '../components/ItemGrid';
 import useLatestData from '../utils/useLatestData';
 import { HomePageGrid } from '../styles/Grids';
-import { IVeganBurgers, IFreshBurgers } from '../types/typesVeganBurgerOrder';
+import { IFreshBurgers } from '../types/typesVeganBurgerOrder';
 import { IChefs } from '../types/typesChefs';
 
 interface ISectionHeader {
