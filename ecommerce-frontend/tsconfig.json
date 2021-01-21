@@ -33,7 +33,7 @@
 		// "src/components/VeganBurgersList.tsx", //TODO
 		"src/pages/404.tsx",
 		// "src/pages/beers.tsx", //TODO
-		"src/pages/index.tsx", //TODO
+		"src/pages/index.tsx",
 		// "src/pages/order.tsx", //TODO
 		"src/pages/the-chefs.tsx",
 		// "src/pages/vegan-burger.tsx", //TODO

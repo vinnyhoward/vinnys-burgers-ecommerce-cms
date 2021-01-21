@@ -73,7 +73,7 @@ const ToppingsFilter: React.FunctionComponent<IBurgerToppings> = ({
 	);
 
 	const renderToppings = () =>
-		toppingsWithCounts.map((topping) => (
+		toppingsWithCounts.map((topping: ITopping) => (
 			<Link
 				className={topping.name === activeTopping ? 'active' : ''}
 				key={topping.id}
