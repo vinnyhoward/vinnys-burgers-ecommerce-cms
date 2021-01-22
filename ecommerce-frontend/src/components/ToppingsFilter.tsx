@@ -33,8 +33,8 @@ const ToppingsStyles = styled.div`
 	}
 `;
 
-function countBurgersInToppings(burgers: Array<IBurgerToppings>): any {
-	const toppingsCount = burgers
+function countBurgersInToppings(burgers: Array<any>): any {
+	const toppingsCount: any = burgers
 		.map((burger) => burger.toppings)
 		.flat()
 		.reduce((acc, topping: any) => {
@@ -49,12 +49,12 @@ function countBurgersInToppings(burgers: Array<IBurgerToppings>): any {
 			return acc;
 		}, {});
 
-	return Object.values(toppingsCount).sort((a, b) => b.count - a.count);
+	const toppingsValues: Array<ITopping> = Object.values(toppingsCount);
+
+	return toppingsValues.sort((a, b) => b.count! - a.count!);
 }
 
-const ToppingsFilter: React.FunctionComponent<IBurgerToppings> = ({
-	activeTopping,
-}) => {
+const ToppingsFilter: React.FunctionComponent<any> = ({ activeTopping }) => {
 	const { veganBurgers } = useStaticQuery(graphql`
 		query {
 			veganBurgers: allSanityVeganBurger {
@@ -68,12 +68,12 @@ const ToppingsFilter: React.FunctionComponent<IBurgerToppings> = ({
 		}
 	`);
 
-	const toppingsWithCounts: Array<IBurgerTopping> = countBurgersInToppings(
+	const toppingsWithCounts: Array<any> = countBurgersInToppings(
 		veganBurgers.nodes
 	);
 
 	const renderToppings = () =>
-		toppingsWithCounts.map((topping: ITopping) => (
+		toppingsWithCounts.map((topping: any) => (
 			<Link
 				className={topping.name === activeTopping ? 'active' : ''}
 				key={topping.id}
