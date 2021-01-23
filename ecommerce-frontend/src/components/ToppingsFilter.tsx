@@ -7,6 +7,10 @@ import {
 	ITopping,
 	IBurgerTopping,
 } from '../types/typesToppingsFilter';
+import {
+	IVeganBurgers,
+	IExistingTopping,
+} from '../types/typesVeganBurgerOrder';
 
 const ToppingsStyles = styled.div`
 	display: flex;
@@ -33,12 +37,12 @@ const ToppingsStyles = styled.div`
 	}
 `;
 
-function countBurgersInToppings(burgers: Array<any>): any {
+function countBurgersInToppings(burgers: Array<IVeganBurgers>) {
 	const toppingsCount: any = burgers
 		.map((burger) => burger.toppings)
 		.flat()
 		.reduce((acc, topping: any) => {
-			const existingTopping = acc[topping.id];
+			const existingTopping: IExistingTopping = acc[topping.id];
 			if (existingTopping) existingTopping.count += 1;
 			else
 				acc[topping.id] = {

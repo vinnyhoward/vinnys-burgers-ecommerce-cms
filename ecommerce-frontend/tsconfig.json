@@ -28,7 +28,7 @@
 		// "src/components/OrderContext.tsx", //TODO
 		"src/components/Pagination.tsx",
 		"src/components/SEO.tsx",
-		"src/components/ToppingsFilter.tsx", //TODO
+		// "src/components/ToppingsFilter.tsx", //TODO
 		// "src/components/VeganBurgerOrder.tsx", //TODO
 		// "src/components/VeganBurgersList.tsx", //TODO
 		"src/pages/404.tsx",

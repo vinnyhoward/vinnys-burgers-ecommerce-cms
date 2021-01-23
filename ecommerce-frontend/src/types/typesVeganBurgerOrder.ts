@@ -45,3 +45,9 @@ export interface IVeganBurgerDataNodes {
 export interface IVeganBurgerNodes {
 	nodes?: Array<IVeganBurgers>;
 }
+
+export interface IExistingTopping {
+	id: string;
+	name: string;
+	count: number;
+}
